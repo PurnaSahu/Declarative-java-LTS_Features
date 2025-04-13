@@ -1,0 +1,128 @@
+Java 9 updates -
+1) Java REPL(Read, Evaluate, Print, Loop) - JShell
+   JShell introduced in Java 9 to help developers run short programs quickly without going into 
+   hassle of creating classes, main method etc. We can create variables, write statements, use 
+   operators and execute in the shell. Java shell adds semicolons automatically so we don’t need to
+   add them explicitly. We can configure default imports as per our requirements.
+   Set path of Java 9 or above. Goto command prompt. Type jshell.
+   Refer JShell commands.xlsx under Demo10015_Java9 project.
+
+2) Factory methods for immutable Collections and Map
+    Can not change the contents of the collections.
+     List<String> productNames = List.of("Ipod", "IPhone", "A.C.", "Fan", "Table");
+     // same for set and map
+    
+     If try to modify the list, UnSupportedOperationException is thrown.
+     Null values is not allowed.
+
+3) Private methods in interface
+    Can not be overridden. Can be used inside interfaces only. private static methods are also 
+    possible. Private methods can be called from other non-static methods only.
+    
+
+4) Module system - Reusability of packages.  
+   rt.jar contains lot of predefined classes. We dont require all these classes in an application.
+   So breaking of rt.jar is required. These are modules. 
+   A module is a named set of Java packages, resources, and native libraries. A module could depend
+   on other modules, and a module declares which other modules are required to compile and run the
+   code in the packages in the module. A module also declares which of its packages are exported for
+   use by other modules and which are not. A module declaration is made with module, a new keyword
+   in Java SE 9. A module consists of two source files: the module-info.java file for a module 
+   declaration, and the main class file for the Main class declaration. The source code for the two
+   files is in a directory by the same name as the module by convention.
+   A module can specify which of the java packages in contains that should be visible to other java
+   modules. Module can contain one or more packages. Each java module requires a module descriptor
+   - module-info.java. This file specifies which packages a module exports and what other modules
+   the current requires. Subpackage are not exported.
+   
+   http://tutorials.jenkov.com/java/modules.html 
+   https://www.oracle.com/corporate/features/understanding-java-9-modules.html
+   
+   module-info.java
+   module com.accenture.lkm {
+   	exports ...;
+   	export ... to ...;
+   	provide ... with ...;
+   	requires ...;
+   	opens ...;
+   	uses ...;
+   }	
+   
+   exports <package> – exposes all public classes from the named package
+   exports <package1> to <package2>- exposes public classes of package1 
+     to package2 only.
+   provides <interface or abstractclass> with <implementation> - Module acts as a
+     service provider. Module provides implementation of service declare in an 
+     interface or abstract class.
+   requires <module> – The current module depends on named modules.
+   requires static <module>– A module is required at compile time but optional at
+     runtime.
+   requires transitive  <module> - Any module reads current module also reads requires transitive
+       module.
+   opens <package> -   package is accessed by other modules at runtime only using reflection.
+   opens <package> to <modules> - package is accessed by specific modules at runtime only using reflection.
+   uses <interface or abstract class> - A service consumer of the service specified in provides.
+   
+   Refer ModuleProject and TestModuleProject -
+   TestModuleProject is using Product class which is available in different project, ModuleProject.
+   Before Java 9, it was required to add jar of ModuleProject in the classpath of TestModuleProject.
+   Java 9 supports module system, that will allow you to add the collection of packages (Module),
+   make them available to different module using module path.
+   Right click to TestModuleProject -> Build path -> Configure build path -> Projects -> Modulepath
+   -> Add -> ModuleProject.
+
+5) Try with resources improvement
+   Try with resources did not allow to the resources to be declared outside the try block. But Java
+   9 allows. The resource declared outside the try block must be final or effectively final.
+
+ 
+6) Optional class -
+   Java 9 has added 3 methods to improve its functionality.
+   stream() - If a value present in the given Optional object, this stream() method returns a 
+              sequential Stream with that value. Otherwise, it returns an Empty Stream.
+   ifPresentOrElse() - It combines all methods like ifPresent(), isPresent() and orElse() methods
+                       in a single method.
+   or() - or() method is used to return a value, if Optional contains a value. Otherwise returns a 
+          value specified in the Supplier. This or() method takes a Supplier as an argument to
+          specify a default value.
+
+
+7) Stream API 
+   takeWhile(predicate) - takeWhile method takes all the values until the predicate returns false. 
+                          It returns, in case of ordered stream, a stream consisting of the longest
+                          prefix of elements taken from this stream matching the given predicate.
+   dropWhile(predicate) - If the stream is ordered, returns a stream consisting of the remaining 
+                          elements of this stream after dropping the longest prefix(a contiguous 
+                          sequence of elements of this stream that match the given predicate) of 
+                          elements that match the given predicate. 
+                          If the stream is unordered, returns a stream consisting of the remaining 
+                          elements of this stream after dropping a subset of elements that match 
+                          the given predicate.
+   iterate - iterate method has predicate as parameter which stops the loop once hasNext predicate
+             returns false.
+   ofNullable - ofNullable method is introduced to prevent NullPointerExceptions and to avoid null
+                checks for streams. This method returns a sequential Stream containing single 
+                element, if non-null, otherwise returns an empty Stream.
+
+8) Enhance @Deprecated - A method, program annotated @Deprecated, discourage the programmer from
+   using it.
+   Starting with JDK 9, APIs may be marked as deprecated for removal. This indicates that the API
+   is eligible to be removed in the next release of the JDK platform. If your application or library
+   consumes any of these APIs, then you should make a plan to migrate from them soon. This 
+   annotation contains string since and boolean forRemoval value. 
+   @Deprecated(since=version, forRemoval=true/false)
+   version is the version when the API was deprecated. 
+   forRemoval=true indicates the API is subject to removal in a future release. 
+              false recommends that code should no longer use this API; however there is current 
+              intent to remove the API.
+
+9) _ operator - Can not be used as an identifier. int _ = 10 would generate compilation error.
+
+10) datesUntil() - Returns the stream of next dates starting from given date.
+
+11) Collectors -
+    filtering() -
+    flatMapping() - 
+    
+    
+    

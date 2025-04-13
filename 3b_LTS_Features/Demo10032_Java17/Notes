@@ -1,0 +1,19 @@
+Java 17 updates -
+A preview feature is a new feature whose design, specification, and implementation are complete, but 
+which is not permanent, which means that the feature may exist in a different form or not at all in 
+future JDK releases.
+Every preview feature is described by a JDK Enhancement Proposal (JEP) that defines its scope and
+sketches its design. For example, JEP 325 describes the JDK 12 preview feature for switch expressions.
+ 
+javac --enable-preview --release 17 Example.java
+java --source 17 --enable-preview Example.java
+
+1) Pattern matching in switch - Preview feature - JEP 406
+   Enhance the Java programming language with pattern matching for switch expressions and statements,
+   along with extensions to the language of patterns. Extending pattern matching to switch allows an
+   expression to be tested against a number of patterns, each with a specific action, so that complex
+   data-oriented queries can be expressed concisely and safely.
+   Allow case labels with patterns rather than just constants.
+   
+2) Sealed Classes/Interfaces - (Preview feature of Java 15)
+   Preview feature became permanant in Java 17.

@@ -1,0 +1,47 @@
+Java 13 updates -
+A preview feature is a new feature whose design, specification, and implementation are complete, but 
+which is not permanent, which means that the feature may exist in a different form or not at all in 
+future JDK releases.
+Every preview feature is described by a JDK Enhancement Proposal (JEP) that defines its scope and
+sketches its design. For example, JEP 325 describes the JDK 12 preview feature for switch expressions.
+ 
+javac --enable-preview --release 13 Example.java
+java --source 13 --enable-preview Example.java
+
+1) Switch Expressions - Preview feature  - JEP 354
+  Replacement of the keyword 'break' in the switch expression by 'yield'. The yield statement exits 
+  the switch and returns the result of the current branch, similar to a return.
+   
+2) Text blocks - Preview feature - JEP 355
+   Used to increase redability of the code written in non-java. e.g. SQL, HTML, JSON.
+   It makes it simple to construct multiline strings. A pair of triple-double quotations must surround
+   the multiline string.
+   String htmlBeforeJava13 = "<html>\n" +
+			  					"   <body>\n" +
+			  					"      <p>Hello, World</p>\n" +
+			  					"   </body>\n" +
+			  					"</html>\n";
+   
+   String htmlInJava13 = """
+          			  <html>
+              		<body>
+               				 <p>Hello, Text Blocks</p>
+              			  </body>
+            			</html>
+            	  """;
+            
+    String json = """
+                {
+                    "name":"IPad",
+                    "price":20000
+                }
+                """;        
+                
+   The opening and closing triple quotes must be in a separate line. The actual content starts with 
+   the second line. This increases the readability of the source code, as the indentation of the first
+   line is displayed correctly in the source text.
+   Text blocks are replaced by normal strings at compile time; in the byte code, you can no longer see
+   how the string was originally defined.
+   Inside the text blocks, we can freely use newlines and quotes without the need for escaping line breaks. 
+   It allows us to include literal fragments of HTML, JSON, SQL.
+   In the resulting String, the (base) indentation and the first newline are not included. 

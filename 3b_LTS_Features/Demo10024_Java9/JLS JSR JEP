@@ -1,0 +1,24 @@
+JLS - Java Language Specifications
+      This is a specification for the Java Language. The JLS specifies the syntax for the Java 
+      programming language and other rules that say what is or is not a valid Java program.
+      
+JSR - Java Specification Request
+      A JSR is a document created as part of the Java Community Process (JCP) that is setting the 
+      scope for a team of people to develop a new specification.
+      The actual specification of the feature happens in this stage, can be either coming through 
+      Groups/Projects, JEPs or from individual JCP (Java Community Process) members.
+      
+JEP - Java Enhancement Proposal
+      A JEP is a document that is proposing an enhancement to Java core technology. These are 
+      proposals typically for enhancements that are not ready to be specified yet. JEPs allow 
+      promoting a new specification informally. Accepted JEPs become a part of the JDK roadmap 
+      and assigned a version number.  
+      
+The relationship between JEPs, JSRs and specifications -
+      JEPs propose and develop experimental ideas to the point where they could be specified. Not 
+      all JEPs come to fruition.
+      JSRs take mature ideas (e.g. resulting from a JEP), and produce a new specification, or 
+      modifications to an existing specification. Not all JSRs come to fruition. A specification is
+      a common work product of a JSR. 
+      The JLS is an example of a specification. Others include the JVM specification, the Servlet 
+      and JSP specifications, the EJB specifications and so on.      

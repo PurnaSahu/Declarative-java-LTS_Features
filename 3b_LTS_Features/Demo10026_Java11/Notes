@@ -1,0 +1,37 @@
+Java 11 updates -
+After java 9, java Version Life time is of 6 month. A Long Term Support every 3 years. First Version
+to provide LTS is Java 11 (18.9 LTS).
+Oracle stops Java 8 support from January 2019. You’ll need to pay for more support.
+You can continue using it, but won’t get any patches/security updates.
+Starting Java11 Oracle JDK is restricted to development and testing environments. Oracle JDKs may only
+be used in production if you buy the commercial support. Instead, Oracle will provide Java builds 
+based on OpenJDK for free which can be used in production 
+
+1) String methods - 
+   isBlank() – Returns true if String is empty or it contains only white spaces.
+   lines() – Returns a stream of strings, which is collection of all substrings split by lines.
+   strip() – Removes the white spaces from both beginning and end of string. 
+   stripLeading() – Removes white spaces from the beginning.
+   stripTrailing()  - Removes white spaces from end.
+   repeat(int) – Repeats the string that many times given as a parameter
+
+   
+2) Running Java file using single command. You don’t need to compile java source file using javac. 
+   You can directly run the file with ‘java’ command and it implicitly compiles.
+   java <filename>.java
+   No class file is created.
+  
+3) File reading and writing - 
+   writeString() – Used to write String contents to the file. Characters are encoded into bytes using
+                   the specified character set. Default is UTF 8.
+   readString() – Used to read all contents from a file into a string, decoding from bytes to 
+                  characters using the UTF-8 charset. The method also ensures that the file is closed 
+                  when all content has been read or an I/O error, or other runtime exception, is 
+                  thrown.
+                  
+4) Not Predicate -
+   This method is used to return a predicate, which is the negation of supplied predicate.
+
+5) Optional isEmpty -
+   This method is used to return true if the value is not present, and, otherwise, it returns false.
+      

@@ -1,0 +1,37 @@
+Java 14 updates -
+A preview feature is a new feature whose design, specification, and implementation are complete, but 
+which is not permanent, which means that the feature may exist in a different form or not at all in 
+future JDK releases.
+Every preview feature is described by a JDK Enhancement Proposal (JEP) that defines its scope and
+sketches its design. For example, JEP 325 describes the JDK 12 preview feature for switch expressions.
+ 
+javac --enable-preview --release 14 Example.java
+java --source 14 --enable-preview Example.java
+
+1) Switch Expressions - 
+  Preview feature of JDK12 and JDK13 are finalized.
+  
+2) NullPointerException - 
+   More descriptive error message for NullPointerException.
+   
+3) Records - Preview feature - JEP 359
+   Creating simple data holding classes in Java requires a lot of boilerplate code. This can be 
+   cumbersome and lead to bugs where developers don't provide all the necessary methods, such as 
+   equals and hashCode. So record introduced.
+   Instead of adding public constructor, getter/accessors, toString, equals, hashcode methods in 
+   every class, delcaration of class with record will add them automatically.  
+   
+   record Product (int id, String name) {} 
+   The Java compiler will generate a constructor, private final fields, accessors, equals/hashCode and 
+   toString methods automatically. 
+   The auto-generated getter methods of the above class are id() and name().
+   Records cannot extend any other class.
+   Records are implicitly final, and cannot be abstract.
+   The components of a record are implicitly final.
+   Record cannot declare instance fields other than the private final fields which are correspond to 
+   components of the state description.
+   
+   
+4) Text blocks - Preview feature - JEP 378
+   Re-previewed with support for more escape sequences.  
+   \s - single space and \ - to supress insertion of new line character at the end of the line.  

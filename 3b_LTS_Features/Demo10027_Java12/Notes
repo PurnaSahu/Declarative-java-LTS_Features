@@ -1,0 +1,50 @@
+Java 12 updates -
+It is a Non-LTS version. Hence it won’t have long term support.
+A preview feature is a new feature whose design, specification, and implementation are complete, but 
+which is not permanent, which means that the feature may exist in a different form or not at all in 
+future JDK releases.
+Every preview feature is described by a JDK Enhancement Proposal (JEP) that defines its scope and
+sketches its design. For example, JEP 325 describes the JDK 12 preview feature for switch expressions.
+
+javac --enable-preview --release 12 Example.java
+java --source 12 --enable-preview Example.java 
+
+1) Switch Expressions - Preview feature  - JEP 325
+   The new Syntax removes the need for break statement to prevent fallthroughs. Switch Expressions 
+   don’t fall through anymore. Furthermore, we can define multiple constants in the same label.
+   default case is now compulsory in Switch Expressions. break is used in Switch Expressions to 
+   return values from a case itself.
+   
+2) File mismatch() Method -
+   This method returns the position of the first mismatch or -1L if there is no mismatch. 
+   Close the files after use.
+   
+3) Teeing Collectors in Stream API -
+   Allows to collect using two independent collectors, then merge their results using the supplied
+   BiFunction. Every element passed to the resulting collector is processed by both downstream collectors,
+   then their results are merged using the specified merge function into the final result.
+   Taking result from two downstream operations and producing one result.
+   
+4) Java Strings New Methods – 
+   indent() - adjusts the indentation of each line in the string based on the value of ‘n’ and also 
+              normalizes line termination characters.
+   transform() - allows us to call a function on the given string. The function should expect a single
+                 String argument and produce a result.
+                 
+5) Pattern Matching for instanceof - Preview feature - JEP 305
+   When using instanceof, we would have to explicitly typecast the object to access its features:
+   
+   Object obj = "Hello World!";
+   if (obj instanceof String) {
+   		String s = (String) obj;
+    	int length = s.length();
+   }
+	
+   With Java 12, we can declare the new typecasted variable directly in the statement:
+
+   Object obj = "Hello World!";
+   if (obj instanceof String s) {
+   		int length = s.length();
+   }
+   
+   The compiler will automatically inject the typecasted String s variable.

@@ -1,0 +1,32 @@
+Java 15 updates -
+A preview feature is a new feature whose design, specification, and implementation are complete, but 
+which is not permanent, which means that the feature may exist in a different form or not at all in 
+future JDK releases.
+Every preview feature is described by a JDK Enhancement Proposal (JEP) that defines its scope and
+sketches its design. For example, JEP 325 describes the JDK 12 preview feature for switch expressions.
+ 
+javac --enable-preview --release 15 Example.java
+java --source 15 --enable-preview Example.java
+
+1) Sealed Classes/Interfaces - Preview feature - JEP 360 
+   The sealed classes and interfaces restrict who can be a subtype.
+   
+   sealed class Employee permits Manager, SManager, TealLead {
+   		// 
+   }
+   
+   Only the classes defined after the keyword 'permits' are allowed to extend the Employee.
+   If you’ve defined the classes Manager, SManager, TealLead in the same file as Employee, you can 
+   omit the keyword permits and the compiler will take care of it implicitly.
+   A permitted subclass that’s declared final cannot be extended further.
+   A permitted subclass that’s declared sealed can be extended further but only by classes that are 
+      permitted by the subclass.
+   A permitted subclass may be declared non-sealed can be extended further by any class. The 
+      superclass cannot restrict the subclasses further down this class hierarchy.
+   A permitted subclass can have final, non-sealed or sealed modifiers only.
+      
+2) Record - 2nd Preview feature - JEP 384
+   Local record - Records can also be defined within methods.
+   
+3) Text Blocks (JEP-378): (Preview feature of Java 13)
+   The preview feature has become permanant in Java 15.         

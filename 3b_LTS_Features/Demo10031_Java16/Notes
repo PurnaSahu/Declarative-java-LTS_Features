@@ -1,0 +1,19 @@
+Java 16 updates -
+A preview feature is a new feature whose design, specification, and implementation are complete, but 
+which is not permanent, which means that the feature may exist in a different form or not at all in 
+future JDK releases.
+Every preview feature is described by a JDK Enhancement Proposal (JEP) that defines its scope and
+sketches its design. For example, JEP 325 describes the JDK 12 preview feature for switch expressions.
+ 
+javac --enable-preview --release 16 Example.java
+java --source 16 --enable-preview Example.java
+
+1) Record - JEP 384
+   This preview feature become permeanant.
+   Non static variables can be added.
+   
+2) Pattern Matching for instanceof - JEP-394  
+     
+   
+3) Stream toList() 
+   Converts stream to list  

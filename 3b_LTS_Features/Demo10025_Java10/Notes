@@ -1,0 +1,31 @@
+Java 10 updates -
+1) var keyword -
+  Java 10 allows you to declare a local variable without specifying its type. The type of variable 
+  will be inferred from type of actual object created.
+      var str = "hello world"; 
+  var variable must be initialized at the time of declaration otherwise compilation error comes.
+  var is not a keyword so can be used as a variable name.
+     var var = 10;
+  Usage allowed as - Local variables with initializers, Indexes in the enhanced for-loop, 
+   Locals declared in a traditional for-loop
+  Usage NOT allowed as - Method parameters, Constructor parameters, Method return types, Class fields,
+   Catch formals
+
+2) Unmodifiable Collection -
+  	List.copyOf(), Set.copyOf() and Map.copyOf() methods create new collection instances 
+  	from existing instances. These methods take whole collection as an argument and create immutable 
+  	copy of that collection. Null values is not allowed.
+  	Collectors.toUnmodifiableList(), Collectors.toUnmodifiableSet() and Collectors.toUnmodifiableMap() 
+  	methods allows to create unmodifiable collections without creating new instances. Null values is not allowed.
+    
+Note: Different between of(), copyOf() and toUnmodifiableXxx() methods -
+of() - Java 9 method to create unmodifiable collection. It takes individual elements as arguments.
+copyOf() - Java 10 method to create unmodifiable collection. It takes whole collection as 
+           argument.
+toUnmodifiableXxx() - Java 10 method helps to create an unmodifiable Collection from a Stream.       
+
+Note: Difference between Collections.unmodifiableXxx() and Collectors.toUnmodifiableXxx().
+Collections.unmodifiableXxx() -
+      If changes are done to the backing collection, they are visible through the unmodifiable collection.
+Collectors.toUnmodifiableXxx() - 
+      If changes are done to the backing collection, they are not visible through the unmodifiable collection.      
