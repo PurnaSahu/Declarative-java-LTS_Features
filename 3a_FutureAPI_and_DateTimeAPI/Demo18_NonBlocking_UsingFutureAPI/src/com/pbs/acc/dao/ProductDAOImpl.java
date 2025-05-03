@@ -1,8 +1,8 @@
-package com.accenture.ltt.dao;
+package com.pbs.acc.dao;
 
 import java.util.List;
 
-import com.accenture.ltt.bean.ProductBean;
+import com.pbs.acc.bean.ProductBean;
 
 public class ProductDAOImpl {
 	public Integer addProduct(List<ProductBean> productList) throws InterruptedException {

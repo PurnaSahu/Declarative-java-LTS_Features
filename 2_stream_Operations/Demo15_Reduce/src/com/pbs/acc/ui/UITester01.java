@@ -11,7 +11,7 @@ public class UITester01 {
 		
 		
 		Stream<Integer> stream2 = Stream.of(10, 20, 30, 40, 50);
-		Integer result1 = stream2.reduce(5, (num1, num2) -> num1 + num2);
+		Integer result1 = stream2.reduce(0, (num1, num2) -> num1 + num2);
 		System.out.println(result1);
 		
 	}

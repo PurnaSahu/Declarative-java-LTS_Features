@@ -12,8 +12,9 @@ public class UITester02 {
 		System.out.println(minPriceProduct);
 		
 		Product maxPriceProduct = ProductUtility.getAllProducts().stream()
-												.reduce((prod1, prod2) -> prod1.getPrice()>prod2.getPrice() ? prod1:prod2)
-												.orElse(new Product(0, null, 0, null, null, null));
+												.reduce(new Product(0, null, 0, null, null, null),
+														(prod1, prod2) -> prod1.getPrice()>prod2.getPrice() ? prod1:prod2);
+												
 		System.out.println(maxPriceProduct);
 	}
 }

@@ -1,8 +1,8 @@
-package com.accenture.ltt.dao;
+package com.pbs.acc.dao;
 
 import java.util.List;
 
-import com.accenture.ltt.bean.StoreBean;
+import com.pbs.acc.bean.StoreBean;
 
 public class StoreDAOImpl {
 	public Integer addStore(List<StoreBean> storeList) throws InterruptedException {
